@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://iqzmpsaviqpolgbrmxqt.supabase.co; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <title>Borrar cuenta de Kontadito</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Borrar tu cuenta de Kontadito</h1>
+
+    <section class="tarjeta">
+      <h2>Qué se borra</h2>
+      <ul>
+        <li>Tu cuenta y tu correo, del servidor de Kontadito, <strong>de inmediato y para siempre</strong>.</li>
+        <li>Todo lo que esté guardado en el servidor a nombre de tu cuenta.</li>
+      </ul>
+      <p>Los datos que están <strong>en tu teléfono</strong> se borran desde la app
+        (Ajustes → Tu cuenta → Borrar mi cuenta) o desinstalándola.
+        Las copias de seguridad que guardaste por tu cuenta (Drive, correo…) no se tocan.</p>
+    </section>
+
+    <section class="tarjeta" id="paso-correo">
+      <h2>1. Tu correo</h2>
+      <p>Te enviaremos un código para comprobar que la cuenta es tuya.</p>
+      <label for="correo">Correo de tu cuenta</label>
+      <input id="correo" type="email" autocomplete="email" maxlength="254" required>
+      <button id="enviar" type="button">Enviarme el código</button>
+    </section>
+
+    <section class="tarjeta oculto" id="paso-codigo">
+      <h2>2. El código</h2>
+      <p id="texto-codigo"></p>
+      <label for="codigo">Código del correo</label>
+      <input id="codigo" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10">
+      <button id="verificar" type="button">Comprobar código</button>
+    </section>
+
+    <section class="tarjeta oculto" id="paso-confirmar">
+      <h2>3. Confirmar</h2>
+      <p>Esto <strong>no se puede deshacer</strong>. Escribe <strong>BORRAR</strong> para confirmar.</p>
+      <label for="confirmacion">Escribe BORRAR</label>
+      <input id="confirmacion" type="text" autocomplete="off" maxlength="12">
+      <button id="borrar" type="button" class="peligro">Borrar mi cuenta para siempre</button>
+    </section>
+
+    <section class="tarjeta oculto" id="paso-listo">
+      <h2>Cuenta borrada</h2>
+      <p>Tu cuenta y tu correo se borraron del servidor de Kontadito.</p>
+    </section>
+
+    <p id="mensaje" role="status" aria-live="polite"></p>
+  </main>
+  <script src="borrar-cuenta.js"></script>
+</body>
+</html>
